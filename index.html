@@ -1,0 +1,12 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Spotify OAuth Relay</title>
+<script>
+// Forwards ?code & ?state to your local listener.
+// Example: https://threewit.github.io/spotify-redirect/?code=...&state=...
+// → http://127.0.0.1:4381/callback/?code=...&state=...
+(function () {
+  var q = location.search ? location.search.substring(1) : "";
+  location.replace("http://127.0.0.1:4381/callback/" + (q ? "?" + q : ""));
+})();
+</script>
