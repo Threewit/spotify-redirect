@@ -1,0 +1,14 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Spotify OAuth Relay</title>
+<script>
+// Forward ?code & ?state from this HTTPS page to your local listener.
+// Example: https://<you>.github.io/spotify-redirect/?code=...&state=...
+// → http://127.0.0.1:4381/callback/?code=...&state=...
+(function () {
+  var q = location.search ? location.search.substring(1) : "";
+  var target = "http://127.0.0.1:4381/callback/" + (q ? "?" + q : "");
+  // top-level navigation from https→http is allowed; we don't need user input.
+  location.replace(target);
+})();
+</script>
